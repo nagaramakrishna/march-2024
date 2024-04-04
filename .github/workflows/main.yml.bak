@@ -26,11 +26,3 @@ jobs:
       run: |
         cd src
         python -m pytest addition.py
-    steps:
-  # need checkout before using compose-action
-    - uses: hoverkraft-tech/compose-action@v1.5.1
-      with:
-        compose-file: "./composetest/docker-compose.yml"
-        services: |
-          helloworld2
-    
