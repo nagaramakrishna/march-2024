@@ -16,6 +16,12 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: ${{ matrix.python-version }}
+        
+    - uses: hoverkraft-tech/compose-action@v1.5.1
+      with:
+        compose-file: "./composetest/docker-compose.yml"
+        services: |
+          helloworld2
 
     - name: Install dependencies
       run: |
@@ -26,11 +32,3 @@ jobs:
       run: |
         cd src
         python -m pytest addition.py
-    steps:
-  # need checkout before using compose-action
-    - uses: hoverkraft-tech/compose-action@v1.5.1
-      with:
-        compose-file: "./composetest/docker-compose.yml"
-        services: |
-          helloworld2
-    
